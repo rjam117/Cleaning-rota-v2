@@ -1,0 +1,18 @@
+#rota-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+th {
+    background-color: #f0f0f0;
+}
