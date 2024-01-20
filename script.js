@@ -22,17 +22,24 @@ function getWeekNumber(d) {
     return weekNo;
 }
 
-function shuffleArray(array) {
+// Seeded random function to ensure consistency across different users
+function seededRandom(seed) {
+    var x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
+}
+
+function shuffleArray(array, seed) {
     for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(seededRandom(seed + i) * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
 
 function generateRotaForCurrentWeek(startDate) {
-    let weekOffset = getWeekNumber(startDate) % tasks.length;
+    let weekNumber = getWeekNumber(startDate);
+    let weekOffset = weekNumber % tasks.length;
     const shuffledTasks = [...tasks];
-    shuffleArray(shuffledTasks);
+    shuffleArray(shuffledTasks, weekNumber); // Shuffle with the week number as the seed
     const assignedTasks = new Set();
     const rota = [];
 
@@ -75,6 +82,7 @@ document.getElementById("next-week-btn").addEventListener("click", function() {
 });
 
 function updateRota() {
+    currentMonday = getMonday(new Date()); // Always calculate the current week's Monday
     const { rota, startDate } = generateRotaForCurrentWeek(currentMonday);
     displayRota(rota, startDate);
     document.getElementById("next-week-btn").textContent = `Week Starting: ${startDate.toLocaleDateString()}`;
