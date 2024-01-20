@@ -1,18 +1,66 @@
+/* Improved CSS for webapp rota generation */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
 #rota-container {
     text-align: center;
     margin-top: 20px;
+    padding: 20px;
 }
 
 table {
     margin: 0 auto;
     border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    max-width: 90%;
+    width: auto;
 }
 
 th, td {
-    border: 1px solid black;
-    padding: 8px;
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
 }
 
 th {
-    background-color: #f0f0f0;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+}
+
+td {
+    color: #555;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #367c39;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px;
+    }
 }
