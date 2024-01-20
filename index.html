@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cleaning Rota</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div id="rota-container">
-        <button id="next-week-btn">Next Week</button>
-        <div id="start-date"></div>
+    <div id="rota-container" role="main">
+        <button id="next-week-btn" aria-label="Load next week's rota">Next Week</button>
+        <div id="start-date" aria-live="polite"></div>
         <table id="cleaning-rota">
             <thead>
                 <tr>
-                    <th>Person</th>
-                    <th>Task</th>
+                    <th scope="col">Person</th>
+                    <th scope="col">Task</th>
                 </tr>
             </thead>
             <tbody>
